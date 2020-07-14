@@ -1,3 +1,11 @@
-.yala {
-border: 1px solid black;
+table {
+    color: darkmagenta;
+}
+tr {
+    color: chocolate;
+}
+th {
+    color: darkgreen;
+    border: 1px solid chocolate;
+    width: 200px;
 }
