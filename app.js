@@ -28,7 +28,6 @@ function headerRow() {
     document.createAttribute('class','change')
     var tr = document.createElement('tr')
     var th0 = document.createElement('th')
-    th0.setAttribute ( "style", 'width: 200px')
         th0.textContent = 'Branch'
         tr.append(th0)
 
@@ -49,15 +48,7 @@ function headerRow() {
 
 headerRow()
 
-/*function footerCalc(){
-    var columnSum = []
-    for (let index = 1; index < hourarray.length+1; index++) {
-        columnSum.push(seattle.hrArray[index] + tokyo.hrArray[index] + dubai.hrArray[index] + paris.hrArray[index] + lima.hrArray[index] )
-        console.log(columnSum[12])
-    }
-}*/
-
-function RenderFooterRow() {
+function FooterRowfc() {
     var columnSum = []
     for (let index = 0; index < hourarray.length; index++) {
         columnSum.push(seattle.hrArray[index] + tokyo.hrArray[index] + dubai.hrArray[index] + paris.hrArray[index] + lima.hrArray[index] )
@@ -69,7 +60,6 @@ function RenderFooterRow() {
     var table = document.createElement('table')
     var tr = document.createElement('tr')
     var th0 = document.createElement('th')
-    th0.setAttribute ( "style", 'width: 200px')
         th0.textContent = 'Total'
         tr.append(th0)
 
@@ -163,4 +153,4 @@ lima.SetrandNumOfCustomersPerHr()
 lima.render()
 console.log(lima.total)
 //footerCalc()
-RenderFooterRow()
+FooterRowfc()
