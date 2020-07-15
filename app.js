@@ -233,4 +233,4 @@ var Lima = {
 }
 Lima.SetrandNumOfCustomersPerHr()
 Lima.render()
-// Done with Lab 06
+// Done with Lab 06..
