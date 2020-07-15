@@ -59,10 +59,12 @@ headerRow()
 
 function RenderFooterRow() {
     var columnSum = []
-    for (let index = 0; index < hourarray.length; index++) {
+    for (let index = 1; index < hourarray.length; index++) {
         columnSum.push(seattle.hrArray[index] + tokyo.hrArray[index] + dubai.hrArray[index] + paris.hrArray[index] + lima.hrArray[index] )
         
     }
+    columnSum.push(seattle.total + tokyo.total + dubai.total + paris.total + lima.total )
+
 
     console.log(columnSum[12])
     var parentElement = document.getElementById('random-hrs')
@@ -164,3 +166,8 @@ lima.render()
 console.log(lima.total)
 //footerCalc()
 RenderFooterRow()
+
+
+
+
+//Done with lab07
