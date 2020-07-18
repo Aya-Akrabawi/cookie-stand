@@ -2,7 +2,8 @@
 var hour = 6
 var hour2 = 1
 var hourarray = []
-cityArray = []
+var AllLocations = []
+var totalpercolumn = []
 
 
 for (let index = 0; index < 14; index++) {
@@ -75,10 +76,11 @@ function FooterRowfc() {
     for (let index = 0; index < hourarray.length; index++) {
         var hourCell = document.createElement('td')
         var totalCookiesPerHour = 0
-        for (let j = 0; j < cityArray.length; j++) {
-            totalCookiesPerHour = totalCookiesPerHour + cityArray[j].cookiesPerHour[index]
+        for (let j = 0; j < AllLocations.length; j++) {
+            totalCookiesPerHour = totalCookiesPerHour + AllLocations[j]+hrArray
+            //console.log(totalpercolumn[index])
         }
-        totals = totalCookiesPerHour
+        totals = totals + totalCookiesPerHour
         hourCell.textContent = totalCookiesPerHour
         footerRowElement.appendChild(hourCell)
     }
@@ -89,8 +91,8 @@ function FooterRowfc() {
 
 
 
-    /*
-    var columnSum = []
+    
+    /*var columnSum = []
     for (let index = 1; index <= hourarray.length; index++) {
         columnSum.push(seattle.hrArray[index] + tokyo.hrArray[index] + dubai.hrArray[index] + paris.hrArray[index] + lima.hrArray[index] )
         
@@ -113,8 +115,8 @@ function FooterRowfc() {
         
     }    
     table.appendChild(tr)
-    parentElement.appendChild(table)*/
-
+    parentElement.appendChild(table)
+*/
 
 
 }
@@ -138,7 +140,7 @@ function Sales(cityArray, minHourlyCustomer, maxHourlyCustomer, avgCookiesPerCus
     this.totalperbranch = array2
     this.total = 0
     this.cellperhr = array3
-    console.log(cityArray)
+    AllLocations.push(this.cityArray)
 
 
 }
@@ -148,8 +150,9 @@ Sales.prototype.SetrandNumOfCustomersPerHr = function () {
         var randomly = Math.floor(Math.random() * (this.maxHourlyCustomer - this.minHourlyCustomer + 1) + this.minHourlyCustomer);
         this.hrArray.push(Math.floor(this.avgCookiesPerCustomer) * randomly)
         this.total = this.total + (Math.floor(this.avgCookiesPerCustomer) * randomly)
-    }
+        console.log(this.hrArray)
 
+    }
 }
 
 Sales.prototype.render = function () {
@@ -195,9 +198,9 @@ addRow.addEventListener('submit', function () {
     event.preventDefault();
 
     var name = event.target.branchname.value;
-    var minHourlyCustomer = event.target.min.value;
-    var maxHourlyCustomer = event.target.max.value;
-    var avgCookiesPerCustomer = event.target.avg.value;
+    var minHourlyCustomer = Number (event.target.min.value);
+    var maxHourlyCustomer = Number (event.target.max.value);
+    var avgCookiesPerCustomer = Number (event.target.avg.value);
 
     var newbranch = new Sales(name, minHourlyCustomer, maxHourlyCustomer, avgCookiesPerCustomer,)
 
@@ -206,7 +209,8 @@ addRow.addEventListener('submit', function () {
     newbranch.SetrandNumOfCustomersPerHr();
     newbranch.render();
     tableElement.removeChild(tableElement.lastchild)
-    cityArray.push(name)
+    AllLocations.push(this.cityArray)
+    FooterRowfc()
 });
 
 
@@ -220,6 +224,8 @@ paris.SetrandNumOfCustomersPerHr()
 paris.render()
 lima.SetrandNumOfCustomersPerHr()
 lima.render()
+//console.log('totalpercolumn  '+totalpercolumn)
+
 FooterRowfc()
 
 
