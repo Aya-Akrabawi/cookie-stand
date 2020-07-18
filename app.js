@@ -119,7 +119,6 @@ function Sales(cityArray, minHourlyCustomer, maxHourlyCustomer, avgCookiesPerCus
 
 
     AllLocations.push(this)
-    //console.log(AllLocations)
 
 }
 
@@ -132,13 +131,6 @@ Sales.prototype.SetrandNumOfCustomersPerHr = function () {
         this.hrArray.push(multiply)
         this.total = total 
         
-
-
-        /*var randomly = Math.floor(Math.random() * (this.maxHourlyCustomer - this.minHourlyCustomer + 1) + this.minHourlyCustomer);
-        this.hrArray.push(Math.floor(this.avgCookiesPerCustomer) * randomly)
-        this.total = this.total + (Math.floor(this.avgCookiesPerCustomer) * randomly)
-        console.log(this.hrArray)*/
-
     }
 }
 
@@ -179,11 +171,9 @@ addRow.addEventListener('submit', function () {
     var tableElement1 = document.getElementById('id-table')
 
     
-    console.log('tableElement '+ tableElement1.rows)
 
     tableElement.deleteRow(tableElement1.rows.length-1)
     AllLocations.push(newbranch)
-    console.log(newbranch)
     newbranch.SetrandNumOfCustomersPerHr();
     newbranch.render();
     FooterRowfc()
@@ -200,9 +190,9 @@ paris.SetrandNumOfCustomersPerHr()
 paris.render()
 lima.SetrandNumOfCustomersPerHr()
 lima.render()
-//console.log('totalpercolumn  '+totalpercolumn)
 
 FooterRowfc()
 
 
 
+//Done
