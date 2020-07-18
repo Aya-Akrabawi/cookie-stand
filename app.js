@@ -3,7 +3,6 @@ var hour = 6
 var hour2 = 1
 var hourarray = []
 var AllLocations = []
-var totalpercolumn = []
 
 
 for (let index = 0; index < 14; index++) {
@@ -21,73 +20,59 @@ for (let index = 0; index < 14; index++) {
 
 }
 
+var forTable = document.getElementById('forTable')
+var tableElement = document.createElement('table')
+tableElement.setAttribute('id' , 'id-table')
+forTable.appendChild(tableElement)
+    
+    
+
+
 function headerRow() {
-    var tableElement = document.getElementById('cookies-sales-table')
     var headerRowElement = document.createElement('tr')
+    tableElement.appendChild(headerRowElement)
     var tabelHeader = document.createElement('th')
-    tabelHeader.textContent = 'Location Name';
     headerRowElement.appendChild(tabelHeader)
+    tabelHeader.textContent = 'Location Name';
 
     for (let index = 0; index < hourarray.length; index++) {
-        tabelHeader = document.createElement('th')
-        tabelHeader.textContent = hourarray[index]
-        headerRowElement.appendChild(tabelHeader)
+        var tabelHeader1 = document.createElement('th')
+        tabelHeader1.textContent = hourarray[index]
+        headerRowElement.appendChild(tabelHeader1)
     }
-    tabelHeader = document.createElement('th')
-    tabelHeader.textContent = 'Daily Location Total'
-    headerRowElement.appendChild(tabelHeader)
-    tableElement.appendChild(headerRowElement)
+    var tabelHeader2 = document.createElement('th')
+    tabelHeader2.textContent = 'Daily Location Total'
+    headerRowElement.appendChild(tabelHeader2)
+    }
 
-
-
-    /*var parentElement = document.getElementById('random-hrs')
-    var table = document.createElement('table')
-    document.createAttribute('class','change')
-    var tr = document.createElement('tr')
-    var th0 = document.createElement('th')
-        th0.textContent = 'Branch'
-        tr.append(th0)
-
-    for (var headrow = 0; headrow < hourarray.length; headrow++) {
-        var th1 = document.createElement('th')
-            th1.textContent = hourarray[headrow]
-        tr.append(th1)
-        
-    }    
-    table.appendChild(tr)
-    parentElement.appendChild(table)
-    var th2 = document.createElement('th')
-        th2.textContent = 'Daily Location Total'
-        tr.append(th2)*/
-
-
-}
+    
 
 headerRow()
 
+
 function FooterRowfc() {
-    var tableElement = document.getElementById('cookies-sales-table')
     var footerRowElement = document.createElement('tr')
+    tableElement.appendChild(footerRowElement)
     var tableRowCell = document.createElement('td')
-    tableRowCell.textContent = 'Totals';
     footerRowElement.appendChild(tableRowCell)
+    tableRowCell.textContent = 'Totals';    
 
     var totals = 0
     for (let index = 0; index < hourarray.length; index++) {
         var hourCell = document.createElement('td')
+        footerRowElement.appendChild(hourCell)
         var totalCookiesPerHour = 0
         for (let j = 0; j < AllLocations.length; j++) {
-            totalCookiesPerHour = totalCookiesPerHour + AllLocations[j]+hrArray
-            //console.log(totalpercolumn[index])
+            totalCookiesPerHour = totalCookiesPerHour + AllLocations[j].hrArray[index]
+            
         }
         totals = totals + totalCookiesPerHour
         hourCell.textContent = totalCookiesPerHour
-        footerRowElement.appendChild(hourCell)
     }
     var totalsTableDataCell = document.createElement('td')
-    totalsTableDataCell.textContent = totals
     footerRowElement.appendChild(totalsTableDataCell)
-    tableElement.appendChild(footerRowElement)
+    totalsTableDataCell.textContent = totals
+    
 
 
 
@@ -121,70 +106,57 @@ function FooterRowfc() {
 
 }
 
-function Sales(cityArray, minHourlyCustomer, maxHourlyCustomer, avgCookiesPerCustomer, hrArray, totalperbranch, cellperhr) {
-    var array1 = []
-    array1.push(hrArray)
-    var array4 = []
-    array4.push(cityArray)
-    var array2 = []
-    array2.push(totalperbranch)
-    var array3 = []
-    array3.push(cellperhr)
-
-    this.name = name
+function Sales(cityArray, minHourlyCustomer, maxHourlyCustomer, avgCookiesPerCustomer) {
+    this.cityArray = cityArray
     this.minHourlyCustomer = minHourlyCustomer
     this.maxHourlyCustomer = maxHourlyCustomer
     this.avgCookiesPerCustomer = avgCookiesPerCustomer
-    this.hrArray = array1
-    this.cityArray = array4
-    this.totalperbranch = array2
-    this.total = 0
-    this.cellperhr = array3
-    AllLocations.push(this.cityArray)
 
+    var total = 0
+    this.total = total
+    var hrArray = []
+    this.hrArray=hrArray
+
+
+    AllLocations.push(this)
+    //console.log(AllLocations)
 
 }
 
 Sales.prototype.SetrandNumOfCustomersPerHr = function () {
+    var total= 0
     for (var index = 0; index < hourarray.length; index++) {
-        var randomly = Math.floor(Math.random() * (this.maxHourlyCustomer - this.minHourlyCustomer + 1) + this.minHourlyCustomer);
+        var randomNum = Math.floor(Math.random() * (this.maxHourlyCustomer - this.minHourlyCustomer + 1) + this.minHourlyCustomer);
+        var multiply = Math.floor(randomNum*this.avgCookiesPerCustomer)
+        total = total + multiply
+        this.hrArray.push(multiply)
+        this.total = total 
+        
+
+
+        /*var randomly = Math.floor(Math.random() * (this.maxHourlyCustomer - this.minHourlyCustomer + 1) + this.minHourlyCustomer);
         this.hrArray.push(Math.floor(this.avgCookiesPerCustomer) * randomly)
         this.total = this.total + (Math.floor(this.avgCookiesPerCustomer) * randomly)
-        console.log(this.hrArray)
+        console.log(this.hrArray)*/
 
     }
 }
 
 Sales.prototype.render = function () {
-    var tableElement = document.getElementById('cookies-sales-table')
 
-    var tr = document.createElement('tr')
-
-    var th1 = document.createElement('th')
-    th1.textContent = this.cityArray
-    tr.append(th1)
-
-
-
-
-
+    var tr5 = document.createElement('tr')
+    tableElement.appendChild(tr5)
+    var th7 = document.createElement('td')
+    tr5.append(th7)
+    th7.textContent = this.cityArray
     for (var branchRow = 0; branchRow < hourarray.length; branchRow++) {
-        var th1 = document.createElement('th')
-
-        th1.textContent = this.hrArray[branchRow + 1]
-        tr.append(th1)
-
-
+        var aya = document.createElement('td')
+        aya.textContent = this.hrArray[branchRow]
+        tr5.append(aya)
     }
-
-    var th1 = document.createElement('th')
-
-    th1.textContent = this.total
-    tr.append(th1)
-
-    tableElement.appendChild(tr)
-
-
+    var th2 = document.createElement('td')
+    th2.textContent = this.total
+    tr5.append(th2)
 }
 
 var seattle = new Sales('Seattle', 23, 65, 6.3);
@@ -204,12 +176,16 @@ addRow.addEventListener('submit', function () {
 
     var newbranch = new Sales(name, minHourlyCustomer, maxHourlyCustomer, avgCookiesPerCustomer,)
 
-    var tableElement = document.getElementById('cookies-sales-table')
+    var tableElement1 = document.getElementById('id-table')
 
+    
+    console.log('tableElement '+ tableElement1.rows)
+
+    tableElement.deleteRow(tableElement1.rows.length-1)
+    AllLocations.push(newbranch)
+    console.log(newbranch)
     newbranch.SetrandNumOfCustomersPerHr();
     newbranch.render();
-    tableElement.removeChild(tableElement.lastchild)
-    AllLocations.push(this.cityArray)
     FooterRowfc()
 });
 
