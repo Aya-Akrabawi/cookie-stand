@@ -40,7 +40,6 @@ img {
 }
 
 #header {
-    width: ;
     padding: 10px;
     border-radius: 50%;
     box-shadow: 1px 1px 20px 10px #888888;
@@ -111,7 +110,6 @@ label {
 #locImg {
     width: 200px;
     height: 150px;
-    border: ;
     margin: 30px ;
     border-radius: 50%;
     box-shadow: 1px 1px 20px 10px #1d1c1c;
