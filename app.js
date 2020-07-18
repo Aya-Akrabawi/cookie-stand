@@ -206,3 +206,7 @@ FooterRowfc()
 
 
 
+
+}
+Lima.SetrandNumOfCustomersPerHr()
+Lima.render()
