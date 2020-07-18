@@ -197,11 +197,6 @@ paris.SetrandNumOfCustomersPerHr()
 paris.render()
 lima.SetrandNumOfCustomersPerHr()
 lima.render()
-//console.log('totalpercolumn  '+totalpercolumn)
 
 FooterRowfc()
 
-
-
-Lima.SetrandNumOfCustomersPerHr()
-Lima.render()
