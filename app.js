@@ -82,17 +82,14 @@ function FooterRowfc() {
         columnSum.push(seattle.hrArray[index] + tokyo.hrArray[index] + dubai.hrArray[index] + paris.hrArray[index] + lima.hrArray[index] )
         
     }
-
     columnSum.push(seattle.total + tokyo.total + dubai.total + paris.total + lima.total )
     
-
     var parentElement = document.getElementById('random-hrs')
     var table = document.createElement('table')
     var tr = document.createElement('tr')
     var th0 = document.createElement('th')
         th0.textContent = 'Total'
         tr.append(th0)
-
     for (var FooterRow = 0; FooterRow < hourarray.length+1; FooterRow++) {
         var th1 = document.createElement('th')
             th1.textContent = columnSum[FooterRow]
@@ -200,13 +197,6 @@ paris.SetrandNumOfCustomersPerHr()
 paris.render()
 lima.SetrandNumOfCustomersPerHr()
 lima.render()
-//console.log('totalpercolumn  '+totalpercolumn)
 
 FooterRowfc()
 
-
-
-
-}
-Lima.SetrandNumOfCustomersPerHr()
-Lima.render()
