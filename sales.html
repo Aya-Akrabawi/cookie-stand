@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salmon Cookies - Sales Data</title>
+    <link rel="stylesheet" href="css\JSstyles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <img src="img\salmon.png" alt="Logo">
+            <li><a href="">Home</a></li>
+            <li><a href="/sales.html">Sales</a></li>
+            <li><a href="#loc">Locations</a></li>
+            <li><a href="#cont">Contact</a></li>
+        </ul>
+    </nav>
+    <h1>Sales</h1>
+    <article>
+    <div id="forTable"></div>
+    <section>
+        <p>
+            Please input the below information to assign it to sales table
+        </p>
+        <form id="addRow">
+            <fieldset>
+             <legend>Branches:</legend>
+             <label for="branchname">Branch Name:</label>
+             <input required type="text" id="branchname"><br><br>
+             <label for="min">Min Value:</label>
+             <input required type="number" id="min" ><br><br>
+             <label  for="max">Max Value:</label>
+             <input required type="number" id="max" ><br><br>
+             <label for="avg">Avg Value:</label>
+             <input required type="number" step="any" id="avg" ><br><br>
+
+
+
+
+
+            <button type="submit">submit</button>
+             
+            </fieldset>
+           </form>
+           
+    </section>
+    <script src="app.js"></script>
+</body>             
+</html>

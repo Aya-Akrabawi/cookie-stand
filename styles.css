@@ -1,0 +1,123 @@
+article {
+    text-align: center;
+}
+
+
+p {
+    font-family: 'Merienda One', cursive; 
+    font-size: 20px;
+    font-weight: 1000;
+    display: inline-block;
+    border-radius: 50%;
+    padding: 15px;
+    margin-top: -15px;
+    border-bottom: 10px solid rgb(1, 71, 1);
+    color: rgb(110, 4, 110);
+}
+span {
+    font-family: 'Merienda One', cursive; 
+    font-size: 20px;
+    font-weight: 1000;
+    display: inline-block;
+    background-color:#888888bd;
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 0px 0px 20px 5px #535252;
+}
+
+img {
+    width: 100px;
+    margin-top: 5px;
+}
+
+#in {
+    width: 300px;
+    height: 200px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 20px 10px #888888;
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+#header {
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 20px 10px #888888;
+    margin-left: 20px;
+    margin-top: 15px;
+    display: inline-block;
+}
+
+nav {
+    border-bottom: 5px solid green;
+    box-shadow: 1px 1px 14px 0px #888888;
+    margin: -15px -5px 5px -5px;
+    position: sticky;
+    top: 0;
+    background-color: burlywood;
+}
+
+li {
+    display: inline-block;
+    position: relative;
+    left: 800px;
+    margin-left: 30px;   
+    font-family: 'Merienda One', cursive; 
+
+}
+
+h1{
+    display: inline-block;
+    font-family: 'Fredoka One', cursive;
+    font-weight: 200;
+    font-size: 70px;
+    color: rgb(6, 87, 6);
+    margin-bottom: 20px;
+    
+}
+
+body {
+    background-image: url(https://i.pinimg.com/originals/8d/df/85/8ddf85d5bbb5c46b5a176f925018f28f.jpg);
+}
+#change {
+    border: 1px solid black;
+}
+table {
+    width: 100%;
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Fredoka One', cursive;
+    font-weight: 200;
+    font-size: 50px;
+    color: rgb(6, 87, 6);
+}
+input, label {
+    font-size: larger;
+    font-family: 'Merienda One', cursive; 
+}
+input {
+    border: 2px solid #888888;
+    font-size: 15px;
+    height: 30px;
+    font-weight: 600;
+}
+label {
+    font-weight: 900;
+    font-size: 20px;
+}
+#locImg {
+    width: 200px;
+    height: 150px;
+    margin: 30px ;
+    border-radius: 50%;
+    box-shadow: 1px 1px 20px 10px #1d1c1c;
+}
+section {
+    align-items: center;
+}
+footer {
+    background-color: #464242;
+    height: 200px;
+}
